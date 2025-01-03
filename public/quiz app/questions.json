@@ -1,0 +1,102 @@
+[
+  {
+    "question": "The precursor for the synthesis of aromatic amino acids is",
+    "options": [
+      "phosphoenolpyruvate",
+      "pyruvate",
+      "oxaloacetate",
+      "Alpha-ketoglutarate"
+    ],
+    "answer": 3
+  },
+  {
+    "question": "The plant hormone indole-3-acetic acid is derived from",
+    "options": [
+      "Histidine",
+      "Tyrosine",
+      "Tryptophan",
+      "Proline"
+    ],
+    "answer": 3
+  },
+  {
+    "question": "Which one of the following small molecules is a prerequisite for fatty acid oxidation?",
+    "options": [
+      "Inositol",
+      "Choline",
+      "Carnitine",
+      "Glycerol"
+    ],
+    "answer": 3
+  },
+  {
+    "question": "Which one of the following proteases does NOT cleave on the carboxyl side of any Arginine residue in a protein?",
+    "options": [
+      "Trypsin",
+      "Proteinase K",
+      "Thrombin",
+      "Chymotrypsin Correct Answer = d"
+    ],
+    "answer": 4
+  },
+  {
+    "question": "The enzyme amylase can break alpha glycosidic linkage between glucose monomers. Hence, amylase can digest which one of the following carbohydrate?",
+    "options": [
+      "Cellulose",
+      "Starch",
+      "Chitin",
+      "Xylan"
+    ],
+    "answer": 2
+  },
+  {
+    "question": "Oxidation of one molecule of glucose via the glycerol-phosphate shuttle produces",
+    "options": [
+      "32 molecules of ATP",
+      "32 molecules of NADPH",
+      "30 molecules of ATP",
+      "30 molecules of NADPH"
+    ],
+    "answer": 3
+  },
+  {
+    "question": "Which one the following reaction mechanisms drives the conversion of low energy 3-phosphoglyceraldehyde to high energy 1,3-bisphosphoglycerate?",
+    "options": [
+      "Oxidation without anhydride bond formation",
+      "Oxidation coupled with anhydride bond formation",
+      "Substrate level phosphorylation",
+      "Formation of carboxylate"
+    ],
+    "answer": 2
+  },
+  {
+    "question": "The reactions leading to the formation of amino acids from the TCA cycle intermediates are?",
+    "options": [
+      "carboxylation",
+      "isomerization",
+      "transamination",
+      "decarboxylation"
+    ],
+    "answer": 3
+  },
+  {
+    "question": "Which one of the following metabolic processes in mammalian cells does NOT occur in the mitochondria?",
+    "options": [
+      "Citric acid cycle",
+      "Oxidative phosphorylation",
+      "Fatty acid B-oxidation",
+      "Glycolysis"
+    ],
+    "answer": 4
+  },
+  {
+    "question": "Nitrogenase reduces N2 to NH3. Metal co-factors required for this activity are",
+    "options": [
+      "Fe & Cu",
+      "Mo & Fe",
+      "Mo & Mn",
+      "Cu & Mn"
+    ],
+    "answer": 2
+  }
+]

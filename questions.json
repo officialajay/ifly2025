@@ -1,0 +1,22 @@
+[
+  {
+    "question": "who is your chacha",
+    "options": [
+      "ad",
+      "adf",
+      "ad",
+      "as"
+    ],
+    "answer": 4
+  },
+  {
+    "question": "who is your amma",
+    "options": [
+      "ram",
+      "shyam",
+      "ani",
+      "nothing"
+    ],
+    "answer": 3
+  }
+]

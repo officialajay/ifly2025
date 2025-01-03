@@ -1,0 +1,60 @@
+.carousel {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+
+/* Inner Container with Images */
+
+.carousel-inner {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-inner img {
+    flex: 0 0 calc(100% / 3);
+    /* 3 images at a time */
+    object-fit: cover;
+}
+
+
+/* Navigation Buttons */
+
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    /* transform: translateY(-50%); */
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    z-index: 10;
+    border-radius: 50%;
+    font-size: 10px;
+}
+
+.carousel-btn.left {
+    left: 10px;
+}
+
+.carousel-btn.right {
+    right: 10px;
+}
+
+.carousel-btn:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+
+/* Responsive Design */
+
+@media (max-width: 768px) {
+    .carousel-inner img {
+        flex: 0 0 100%;
+        /* Show 1 image on small screens */
+    }
+}

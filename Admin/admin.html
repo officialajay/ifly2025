@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Page</title>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        display: flex;
+        height: 100vh;
+        background: #f4f6f9;
+      }
+
+      .admin-container {
+        display: flex;
+        width: 100%;
+        overflow: hidden;
+      }
+
+      .sidebar {
+        width: 250px;
+        background-color: #2c3e50;
+        color: #ecf0f1;
+        padding: 30px 20px;
+        box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      .sidebar h2 {
+        font-size: 28px;
+        margin-bottom: 30px;
+        text-align: center;
+        font-weight: 600;
+        color: #ecf0f1;
+      }
+
+      .sidebar ul {
+        list-style: none;
+        padding: 0;
+        flex-grow: 1;
+      }
+
+      .sidebar ul li {
+        padding: 15px 20px;
+        margin-bottom: 15px;
+        border-radius: 8px;
+        transition: background-color 0.3s ease, padding-left 0.3s ease;
+        cursor: pointer;
+      }
+
+      .sidebar ul li a {
+        text-decoration: none;
+        color: white;
+        font-size: 18px;
+        font-weight: 500;
+      }
+
+      .sidebar ul li:hover {
+        background-color: #34495e;
+        padding-left: 30px;
+      }
+
+      .logout-button {
+        background-color: #e74c3c;
+        color: #fff;
+        border: none;
+        padding: 12px 24px;
+        border-radius: 8px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        width: 100%;
+        margin-top: 20px;
+      }
+
+      .logout-button:hover {
+        background-color: #c0392b;
+      }
+
+      .content {
+        flex-grow: 1;
+        padding: 30px;
+        overflow-y: auto;
+        background: white;
+        box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        margin-left: 20px;
+        transition: all 0.3s ease;
+      }
+
+      .content h1 {
+        font-size: 32px;
+        color: #2c3e50;
+        margin-bottom: 20px;
+      }
+
+      .content #dynamic-content {
+        font-size: 18px;
+        color: #7f8c8d;
+      }
+
+      /* Responsive Design */
+      @media screen and (max-width: 768px) {
+        .sidebar {
+          width: 200px;
+        }
+
+        .content {
+          padding: 20px;
+          margin-left: 0;
+        }
+
+        .sidebar h2 {
+          font-size: 24px;
+        }
+
+        .sidebar ul li {
+          font-size: 16px;
+        }
+
+        .logout-button {
+          font-size: 14px;
+          padding: 10px 20px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="admin-container">
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <h2>Admin Panel</h2>
+        <ul>
+          <li id="new-questions">
+            <a href="../admin/addnewque.html">Add Questions</a>
+          </li>
+          <li id="students">
+            <a href="../admin/student.html">Students</a>
+          </li>
+        </ul>
+        <!-- Logout Button -->
+        <button class="logout-button" id="logout">Log Out</button>
+        <a
+          href="/changeCredentials"
+          style="color: #ecf0f1; text-decoration: none; text-align: center"
+          >Change Password</a
+        >
+      </aside>
+
+      <!-- Content Area -->
+      <main class="content">
+        <h1>Welcome to the Admin Panel</h1>
+        <div id="dynamic-content">Select an option from the sidebar.</div>
+      </main>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const logoutButton = document.getElementById("logout");
+
+        logoutButton.addEventListener("click", () => {
+          fetch("/api/logout", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+          })
+            .then((response) => {
+              if (response.ok) {
+                alert("Logged out successfully!");
+                window.location.href = "/admin"; // Redirect to the login page
+              } else {
+                alert("Failed to log out. Please try again.");
+              }
+            })
+            .catch((error) => {
+              console.error("Logout error:", error);
+              alert("An error occurred. Please try again.");
+            });
+        });
+      });
+    </script>
+  </body>
+</html>

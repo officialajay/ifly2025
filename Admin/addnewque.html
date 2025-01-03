@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Page</title>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        display: flex;
+        height: 100vh;
+        background: #f4f6f9;
+      }
+
+      .admin-container {
+        display: flex;
+        width: 100%;
+        overflow: hidden;
+      }
+
+      .sidebar {
+        width: 250px;
+        background-color: #2c3e50;
+        color: #ecf0f1;
+        padding: 30px 20px;
+        box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      .sidebar h2 {
+        font-size: 28px;
+        margin-bottom: 30px;
+        text-align: center;
+        font-weight: 600;
+        color: #ecf0f1;
+      }
+
+      .sidebar ul {
+        list-style: none;
+        padding: 0;
+        flex-grow: 1;
+      }
+
+      .sidebar ul li {
+        padding: 15px 20px;
+        margin-bottom: 15px;
+        border-radius: 8px;
+        transition: background-color 0.3s ease, padding-left 0.3s ease;
+        cursor: pointer;
+      }
+
+      .sidebar ul li a {
+        text-decoration: none;
+        color: white;
+        font-size: 18px;
+        font-weight: 500;
+      }
+
+      .sidebar ul li:hover {
+        background-color: #34495e;
+        padding-left: 30px;
+      }
+
+      .logout-button {
+        background-color: #e74c3c;
+        color: #fff;
+        border: none;
+        padding: 12px 24px;
+        border-radius: 8px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        width: 100%;
+        margin-top: 20px;
+      }
+
+      .logout-button:hover {
+        background-color: #c0392b;
+      }
+
+      .content {
+        flex-grow: 1;
+        padding: 30px;
+        overflow-y: auto;
+        background: white;
+        box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        margin-left: 20px;
+        transition: all 0.3s ease;
+      }
+
+      .content h1 {
+        font-size: 32px;
+        color: #2c3e50;
+        margin-bottom: 20px;
+      }
+
+      .content form {
+        /* display: flex; */
+        /* flex-direction: column; */
+        /* gap: 20px; Adjusted the gap between the elements */
+      }
+
+      .content label {
+        font-size: 16px;
+        color: #2c3e50;
+        font-weight: 500;
+      }
+
+      .content input {
+        padding: 10px;
+        font-size: 16px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        width: 100%;
+        max-width: 350px; /* Limited the width of the input fields */
+        margin-left: 15px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        transition: border 0.3s;
+      }
+
+      .content input:focus {
+        border-color: #3498db;
+        outline: none;
+      }
+
+      .content button {
+        padding: 10px 20px; /* Reduced padding to make the button more balanced */
+        background-color: #2ecc71;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-size: 16px; /* Adjusted font size */
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        width: 100%;
+        max-width: 350px; /* Centered the button */
+        margin: 0 auto;
+      }
+
+      .content button:hover {
+        background-color: #27ae60;
+      }
+
+      #dynamic-content {
+        margin-top: 20px;
+        font-size: 18px;
+      }
+
+      /* Responsive Design */
+      @media screen and (max-width: 768px) {
+        .sidebar {
+          width: 200px;
+        }
+
+        .content {
+          padding: 20px;
+          margin-left: 0;
+        }
+
+        .sidebar h2 {
+          font-size: 24px;
+        }
+
+        .sidebar ul li {
+          font-size: 16px;
+        }
+
+        .logout-button {
+          font-size: 14px;
+          padding: 10px 20px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="admin-container">
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <h2>Admin Panel</h2>
+        <ul>
+          <li id="new-questions">
+            <a href="../admin/addnewque.html">Add Questions</a>
+          </li>
+          <li id="students">
+            <a href="../admin/student.html">Students</a>
+          </li>
+        </ul>
+        <!-- Logout Button -->
+        <button class="logout-button" id="logout">Log Out</button>
+        <a
+          href="/changeCredentials"
+          style="color: #ecf0f1; text-decoration: none; text-align: center"
+          >Change Password</a
+        >
+      </aside>
+
+      <!-- Content Area -->
+      <main class="content">
+        <h1>Add New Question</h1>
+        <form id="questionForm">
+          <label for="question">Question:</label>
+          <input
+            type="text"
+            id="question"
+            name="question"
+            required
+          /><br /><br />
+
+          <label for="option1">Option 1:</label>
+          <input type="text" id="option1" name="option1" required /><br /><br />
+
+          <label for="option2">Option 2:</label>
+          <input type="text" id="option2" name="option2" required /><br /><br />
+
+          <label for="option3">Option 3:</label>
+          <input type="text" id="option3" name="option3" required /><br /><br />
+
+          <label for="option4">Option 4:</label>
+          <input type="text" id="option4" name="option4" required /><br /><br />
+
+          <label for="answer">Correct Answer (1-4):</label>
+          <input
+            type="number"
+            id="answer"
+            name="answer"
+            min="1"
+            max="4"
+            required
+            style="width: 100px"
+          /><br /><br />
+
+          <button type="submit">Submit</button>
+        </form>
+      </main>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const logoutButton = document.getElementById("logout");
+
+        logoutButton.addEventListener("click", () => {
+          fetch("/api/logout", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+          })
+            .then((response) => {
+              if (response.ok) {
+                alert("Logged out successfully!");
+                window.location.href = "/admin"; // Redirect to the login page
+              } else {
+                alert("Failed to log out. Please try again.");
+              }
+            })
+            .catch((error) => {
+              console.error("Logout error:", error);
+              alert("An error occurred. Please try again.");
+            });
+        });
+      });
+
+      // Add new Questions
+      const form = document.getElementById("questionForm");
+      document
+        .getElementById("questionForm")
+        .addEventListener("submit", async function (e) {
+          e.preventDefault();
+
+          const question = document.getElementById("question").value;
+          const options = [
+            document.getElementById("option1").value,
+            document.getElementById("option2").value,
+            document.getElementById("option3").value,
+            document.getElementById("option4").value,
+          ];
+          const answer = parseInt(document.getElementById("answer").value);
+
+          const newQuestion = { question, options, answer };
+
+          try {
+            const response = await fetch("/add-question", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify(newQuestion),
+            });
+
+            if (response.ok) {
+              alert("Question added successfully!");
+              form.reset();
+            } else {
+              alert("Failed to add question.");
+            }
+          } catch (error) {
+            console.error("Error:", error);
+            alert("An error occurred while adding the question.");
+          }
+        });
+    </script>
+  </body>
+</html>
